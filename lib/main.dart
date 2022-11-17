@@ -1,5 +1,6 @@
-import 'package:tutorial_pbp/form.dart';
 import 'package:flutter/material.dart';
+import 'package:tutorial_pbp/page/form.dart';
+import 'package:tutorial_pbp/page/to_do_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -77,28 +78,41 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       drawer: Drawer(
-          // Center is a layout widget. It takes a single child and positions it
-          // in the middle of the parent.
-          child: Column(
-        children: [
-          ListTile(
-            title: const Text('Counter'),
-            onTap: () {
-              Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) => const MyHomePage()));
-            },
-          ),
-          ListTile(
-            title: const Text('Form'),
-            onTap: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => const MyFormPage()),
-              );
-            },
-          ),
-        ],
-      )),
+        // Center is a layout widget. It takes a single child and positions it
+        // in the middle of the parent.
+        child: Column(
+          children: [
+            ListTile(
+              title: const Text('Counter'),
+              onTap: () {
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const MyHomePage()));
+              },
+            ),
+            ListTile(
+              title: const Text('Form'),
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const MyFormPage()),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text('To Do'),
+              onTap: () {
+                // Route menu ke halaman to do
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ToDoPage()),
+                );
+              },
+            ),
+          ],
+        ),
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
